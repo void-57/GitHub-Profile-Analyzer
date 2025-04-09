@@ -1,55 +1,162 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 GitHub Profile Analyzer
 
-Currently, two official plugins are available:
+A React + TypeScript web app to analyze public GitHub profiles. Users can input a GitHub username to view public repositories, activity metrics, and visualizations like daily and weekly commit charts. Built with Vite and styled using ShadCN UI and Lucide React icons.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Demo: _[https://github-profile-analyzer-by-void57.vercel.app]_
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- ⚛️ React + TypeScript
+- ⚡ Vite
+- 💅 ShadCN UI
+- 📊 Recharts (for data visualizations)
+- 🧠 GitHub REST API
+
+---
+
+## 📁 Folder Structure
+```plaintext
+GitHub-Profile-Analyzer/  
+├── node_modules/ # Project dependencies 
+├── public/ # Static assets 
+├── src/ 
+│ ├── components/ 
+│ │ └── ui/ # UI components for GitHub profile display 
+│ │ ├── GitHubCommitActivity.tsx 
+│ │ ├── GitHubEmptyState.tsx 
+│ │ ├── GitHubLoading.tsx 
+│ │ ├── GitHubProfileHeader.tsx 
+│ │ ├── GitHubReposList.tsx 
+│ │ └── GitHubUserCard.tsx 
+│ ├── lib/ # Shared logic and styles 
+│ │ └── App.css 
+│ ├── App.tsx # Main App component 
+│ ├── index.css # Global styles 
+│ ├── main.tsx # Entry point 
+│ └── vite-env.d.ts # Vite + TypeScript environment types 
+├── index.html # HTML entry point 
+├── .gitignore # Git ignore rules 
+├── components.json # ShadCN UI component config 
+├── eslint.config.js # ESLint configuration 
+├── package.json # Project metadata and dependencies 
+├── package-lock.json # Dependency lockfile 
+├── tsconfig.json # TypeScript configuration 
+├── tsconfig.app.json # TypeScript config for app files 
+├── tsconfig.node.json # TypeScript config for node scripts 
+├── vite.config.ts # Vite build configuration 
+└── README.md # Project documentation
 ```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js v18+
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/void-57/GitHub-Profile-Analyzer.git
+   cd GitHub-Profile-Analyzer
+   ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or 
+   yarn install
+   ```
+
+### (Optional) Add GitHub Token
+
+To avoid API rate limits, create a `.env` file in the root directory with the following content:
+
+```ini
+VITE_GITHUB_TOKEN=your_personal_access_token
 ```
-# GitHub-Profile-Analyzer
+You can generate a token here: https://github.com/settings/tokens
+
+### ▶️ Run the Development Server
+```bash
+npm run dev
+# or
+yarn dev
+```
+Then open: http://localhost:5173
+## 🌍 Deployment
+
+### 🚀 Deploy to Vercel
+
+1. Go to [Vercel](https://vercel.com) and log in with your GitHub account.
+2. Click **"New Project"** and import your GitHub repository.
+3. Vercel will auto-detect the **Vite** setup.
+
+Set the following in the project settings:
+
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+
+> ✅ **Optional**: Add `VITE_GITHUB_TOKEN` in Vercel’s Environment Variables for improved GitHub API limits.
+
+4. Click **Deploy** — your app is live!
+## 📸 Screenshots
+
+_Add UI screenshots once available._
+
+---
+
+## 🧪 Features
+
+- 🔍 Enter a GitHub username to fetch data  
+- 📂 Display public repositories  
+- 📊 View commit activity by day (on repo selection)  
+- 📅 Weekly commit chart  
+- 🎨 Polished UI with ShadCN and Lucide Icons  
+
+---
+
+## ❓ FAQs
+
+**Q: Why is some data missing?**  
+A: GitHub API limits unauthenticated requests. Add a token in `.env` to improve limits.
+
+**Q: Can I use this commercially?**  
+A: Yes, it's licensed under the MIT License.
+
+---
+
+## 📄 License
+
+Licensed under the **MIT License**.
+
+---
+
+## 👥 Contributors
+
+**void-57** — Developer & Maintainer
+
+---
+
+## 🙌 Acknowledgements
+
+- GitHub REST API  
+- ShadCN UI  
+- Recharts  
+- Lucide Icons  
+
+---
+
+## 📬 Feedback
+
+Found a bug or have a feature request?  
+Open an issue or create a PR.
+
+---
+
+**Happy Coding! 💻✨**
+
